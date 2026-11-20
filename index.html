@@ -95,6 +95,22 @@
                             </a>
                         </div>
                     </div>
+                    <div class="hero-panel reveal" aria-hidden="true">
+                        <div class="hero-panel-bar">
+                            <span class="hero-panel-dots"><i></i><i></i><i></i></span>
+                            <span class="hero-panel-name">vapt@adithyan — ~/engagement</span>
+                        </div>
+                        <div class="hero-panel-body">
+                            <p><span class="hp-prompt">$</span> nmap -sV target.local</p>
+                            <p class="hp-dim">80/tcp open http · 443/tcp open https</p>
+                            <p><span class="hp-prompt">$</span> jwt --scan --weak-alg</p>
+                            <p class="hp-ok">[+] alg=none accepted — HIGH</p>
+                            <p><span class="hp-prompt">$</span> cswsh --probe ws.target</p>
+                            <p class="hp-ok">[+] origin bypass confirmed — HIGH</p>
+                            <p><span class="hp-prompt">$</span> --write poc &amp; report</p>
+                            <p class="hp-ok hp-last">[✓] evidence attached · severity assigned</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Decorative grid dots -->
@@ -139,55 +155,44 @@
         <!-- ===== EXPERIENCE SECTION ===== -->
         <section class="section" id="experience">
             <div class="container">
-                <div class="about-grid">
-                    <div class="about-text reveal">
-                        <h2 class="section-title">Experience</h2>
-                        <p class="body-text">
-                            Hands-on VA/PT on production web applications, web services/APIs and Android apps — from
-                            scoping and exploitation to client-ready reports. Every finding backed by a working
-                            proof-of-concept, severity rating and clear remediation.
-                        </p>
-                    </div>
-                    <div class="education-card reveal">
-                        <h3 class="card-title">Where I've Worked</h3>
-                        <div class="timeline">
-                            <div class="timeline-item timeline-item-active">
-                                <div class="timeline-dot active"></div>
-                                <div class="timeline-content">
-                                    <h4 class="timeline-heading">Junior Security Analyst Intern</h4>
-                                    <p class="timeline-sub">Beagle Security · On-site</p>
-                                    <span class="chip chip-sm">Jul 2026 – Present</span>
-                                    <p class="timeline-detail">• Perform VA/PT of production web applications, web
-                                        services/APIs and Android apps under senior analyst guidance, including
-                                        healthcare-sector engagements (NDA-governed).</p>
-                                    <p class="timeline-detail">• Test for OWASP Top 10 issues, authentication/session
-                                        weaknesses, JWT misconfigurations and WebSocket attacks such as Cross-Site
-                                        WebSocket Hijacking (CSWSH) using Burp Suite Professional.</p>
-                                    <p class="timeline-detail">• Back every finding with a working proof-of-concept,
-                                        evidence, severity rating and remediation guidance across the full VAPT
-                                        lifecycle — from scoping to client reporting.</p>
-                                    <p class="timeline-detail">• Built internal Python tooling to cut repetitive work:
-                                        a CSWSH scanner, a JWT vulnerability scanner and a Retire.js-based
-                                        vulnerable-component check.</p>
-                                    <p class="timeline-detail">• Analyse Android apps statically and dynamically with
-                                        MobSF, jadx and Frida to uncover insecure storage, weak authentication and API
-                                        flaws.</p>
-                                    <p class="timeline-detail">• Designed web and mobile challenges for the c0c0n DOM
-                                        CTF from real-world vulnerability patterns.</p>
-                                </div>
+                <div class="section-header reveal">
+                    <h2 class="section-title">Experience</h2>
+                    <p class="section-subtitle">Hands-on VA/PT on production web applications, APIs and Android apps —
+                        every finding backed by a working PoC and clear remediation.</p>
+                </div>
+                <div class="education-card reveal">
+                    <div class="timeline">
+                        <div class="timeline-item timeline-item-active">
+                            <div class="timeline-dot active"></div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-heading">Junior Security Analyst Intern</h4>
+                                <p class="timeline-sub">Beagle Security · On-site</p>
+                                <span class="chip chip-sm">Jul 2026 – Present</span>
+                                <ul class="timeline-detail-list">
+                                    <li>VA/PT of production web apps, web services/APIs and Android apps under senior
+                                        analyst guidance, including NDA-governed healthcare-sector engagements.</li>
+                                    <li>Tested OWASP Top 10, auth/session weaknesses, JWT misconfigurations and CSWSH
+                                        with Burp Suite Professional; every finding backed by a PoC, severity rating
+                                        and remediation.</li>
+                                    <li>Built Python tooling to cut repetitive work: a CSWSH scanner, a JWT scanner and
+                                        a Retire.js-based vulnerable-component check.</li>
+                                    <li>Android analysis with MobSF, jadx and Frida; designed web and mobile challenges
+                                        for the c0c0n DOM CTF.</li>
+                                </ul>
                             </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content">
-                                    <h4 class="timeline-heading">Cybersecurity Intern</h4>
-                                    <p class="timeline-sub">Redynox · Remote</p>
-                                    <span class="chip chip-sm">Nov 2025 – Dec 2025</span>
-                                    <p class="timeline-detail">• Performed web application penetration testing with
-                                        OWASP ZAP on 3+ applications, finding OWASP Top 10 issues including SQL injection
-                                        and XSS.</p>
-                                    <p class="timeline-detail">• Documented 15+ findings with severity ratings and
-                                        remediation steps, feeding the team's ISO 27001-aligned remediation workflow.</p>
-                                </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-heading">Cybersecurity Intern</h4>
+                                <p class="timeline-sub">Redynox · Remote</p>
+                                <span class="chip chip-sm">Nov 2025 – Dec 2025</span>
+                                <ul class="timeline-detail-list">
+                                    <li>Web application pentesting with OWASP ZAP on 3+ applications; found OWASP Top 10
+                                        issues including SQL injection and XSS.</li>
+                                    <li>Documented 15+ findings with severity ratings and remediation steps, feeding
+                                        the team's ISO 27001-aligned remediation workflow.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>

@@ -74,13 +74,13 @@
     --margin-mobile:  20px;
     --margin-desktop: 64px;
     --container-max:  1280px;
-    --section-gap:    120px;
+    --section-gap:    96px;
 
     /* ── Rounded ── */
     --radius-sm:  4px;
-    --radius-md:  8px;
-    --radius-lg:  12px;
-    --radius-xl:  16px;
+    --radius-md:  10px;
+    --radius-lg:  14px;
+    --radius-xl:  20px;
     --radius-full: 9999px;
 
     /* ── Transitions ── */
@@ -171,29 +171,42 @@ ul, ol { list-style: none; }
 /* ───────────── TYPOGRAPHY ───────────── */
 .section-title {
     font-family: var(--font-headline);
-    font-size: clamp(28px, 4vw + 10px, 36px);
-    font-weight: 700;
-    line-height: 1.3;
-    letter-spacing: -0.02em;
+    font-size: clamp(30px, 4vw + 10px, 44px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
     color: var(--on-background);
     margin-bottom: 16px;
+}
+.section-title::before {
+    content: '';
+    display: block;
+    width: 44px;
+    height: 4px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(90deg, var(--primary-container), #0e7490);
+    margin-bottom: 18px;
 }
 
 .section-subtitle {
     font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 17px;
+    line-height: 1.65;
     color: var(--secondary);
 }
 
 .section-header {
-    margin-bottom: 48px;
+    margin-bottom: 40px;
+}
+.text-center .section-title::before {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .body-text {
     font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 17px;
+    line-height: 1.7;
     color: var(--secondary);
 }
 
@@ -285,12 +298,12 @@ ul, ol { list-style: none; }
 
 .chip {
     display: inline-block;
-    padding: 6px 14px;
+    padding: 7px 15px;
     border-radius: var(--radius-full);
     background: var(--surface-container);
     color: var(--secondary);
     font-family: var(--font-label);
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
     line-height: 1.2;
     transition: background 0.2s ease, color 0.2s ease;
@@ -471,7 +484,50 @@ ul, ol { list-style: none; }
 .hero-grid {
     position: relative;
     z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 56px;
 }
+@media (min-width: 1024px) {
+    .hero-grid { grid-template-columns: 1.25fr 0.75fr; gap: 56px; }
+}
+
+.hero-panel {
+    width: 100%;
+    max-width: 520px;
+    justify-self: center;
+    background: #0b1220;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 30px 60px -20px rgba(2, 6, 23, 0.45);
+    overflow: hidden;
+    font-family: var(--font-label);
+}
+.hero-panel-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+}
+.hero-panel-dots { display: flex; gap: 6px; }
+.hero-panel-dots i { width: 9px; height: 9px; border-radius: 50%; background: #ef4444; }
+.hero-panel-dots i:nth-child(2) { background: #f59e0b; }
+.hero-panel-dots i:nth-child(3) { background: #10b981; }
+.hero-panel-name { font-size: 11px; color: #94a3b8; }
+.hero-panel-body {
+    padding: 22px 22px 26px;
+    font-size: 13px;
+    line-height: 1.9;
+    color: #cbd5e1;
+}
+.hero-panel-body p { margin: 0; }
+.hp-prompt { color: #34d399; margin-right: 8px; }
+.hp-dim { color: #64748b; padding-left: 16px; }
+.hp-ok { color: #6ee7b7; padding-left: 16px; }
+.hp-last { margin-top: 4px; }
 
 .hero-badge {
     display: inline-flex;
@@ -515,16 +571,18 @@ ul, ol { list-style: none; }
 }
 
 .text-accent {
-    color: var(--primary-container);
-    position: relative;
+    background: linear-gradient(100deg, #064e3b 15%, #0f766e 55%, #0e7490 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .hero-subtitle {
     font-family: var(--font-body);
-    font-size: clamp(16px, 2vw + 10px, 18px);
-    line-height: 1.6;
+    font-size: clamp(16px, 2vw + 10px, 19px);
+    line-height: 1.7;
     color: var(--secondary);
-    max-width: 560px;
+    max-width: 620px;
     margin-bottom: 40px;
 }
 
@@ -562,7 +620,7 @@ ul, ol { list-style: none; }
 
 .education-card {
     background: var(--surface);
-    padding: 32px;
+    padding: 36px;
     border-radius: var(--radius-xl);
     border: 1px solid var(--surface-variant);
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08),
@@ -630,6 +688,34 @@ ul, ol { list-style: none; }
     line-height: 1.6;
 }
 
+/* ── Experience bullets ── */
+.timeline-detail-list {
+    margin-top: 12px;
+    display: grid;
+    gap: 8px 28px;
+}
+@media (min-width: 1024px) {
+    .timeline-detail-list { grid-template-columns: repeat(2, 1fr); }
+}
+.timeline-detail-list li {
+    position: relative;
+    padding-left: 18px;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--secondary);
+}
+.timeline-detail-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary-container);
+}
+
 
 /* ───────────── SKILLS SECTION ───────────── */
 .skills-grid {
@@ -645,7 +731,7 @@ ul, ol { list-style: none; }
 }
 
 .skill-card {
-    padding: 28px;
+    padding: 32px;
     background: var(--surface-container-lowest);
     border: 1px solid var(--surface-variant);
     border-radius: var(--radius-xl);
@@ -659,8 +745,8 @@ ul, ol { list-style: none; }
 }
 
 .skill-icon {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -786,7 +872,7 @@ ul, ol { list-style: none; }
 }
 
 .cert-card {
-    padding: 24px;
+    padding: 28px;
     background: var(--surface-container-lowest);
     border: 1px solid var(--surface-variant);
     border-radius: var(--radius-xl);
@@ -804,8 +890,8 @@ ul, ol { list-style: none; }
 }
 
 .cert-icon {
-    width: 64px;
-    height: 64px;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
     background: var(--surface-container-high);
     color: var(--primary-container);
@@ -826,7 +912,7 @@ ul, ol { list-style: none; }
 
 .cert-title {
     font-family: var(--font-body);
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--on-background);
     margin-bottom: 4px;
